@@ -7,19 +7,22 @@
   <meta name="description" content="Mobile game development and consulting" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=Nunito+Sans:wght@300;400&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:        #0a0a0b;
-      --surface:   #111113;
-      --border:    rgba(255,255,255,0.07);
-      --text:      #e8e4dc;
-      --muted:     rgba(232,228,220,0.45);
-      --accent:    #c9a96e;
-      --accent-dim: rgba(201,169,110,0.15);
+      --bg:            #08080f;
+      --surface:       #0e0e1a;
+      --surface-2:     #13131f;
+      --border:        rgba(255,255,255,0.06);
+      --border-acc:    rgba(162,89,255,0.25);
+      --text:          #eeeaf8;
+      --muted:         rgba(238,234,248,0.45);
+      --accent:        #a259ff;
+      --accent-bright: #bf7fff;
+      --accent-dim:    rgba(162,89,255,0.12);
     }
 
     html { scroll-behavior: smooth; }
@@ -27,7 +30,7 @@
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: 'Jost', sans-serif;
+      font-family: 'Nunito Sans', sans-serif;
       font-weight: 300;
       min-height: 100vh;
       display: flex;
@@ -35,29 +38,23 @@
       overflow-x: hidden;
     }
 
-    /* ── Grain overlay ── */
-    body::before {
-      content: '';
+    /* ── Ambient glow blobs ── */
+    .glow-1, .glow-2 {
       position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 999;
-      opacity: 0.6;
-    }
-
-    /* ── Ambient glow ── */
-    body::after {
-      content: '';
-      position: fixed;
-      top: -20vh;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60vw;
-      height: 60vw;
-      background: radial-gradient(ellipse, rgba(201,169,110,0.04) 0%, transparent 70%);
+      border-radius: 50%;
       pointer-events: none;
       z-index: 0;
+      filter: blur(90px);
+    }
+    .glow-1 {
+      width: 55vw; height: 55vw;
+      top: -18vw; left: -12vw;
+      background: radial-gradient(ellipse, rgba(162,89,255,0.08) 0%, transparent 70%);
+    }
+    .glow-2 {
+      width: 40vw; height: 40vw;
+      bottom: -5vw; right: -10vw;
+      background: radial-gradient(ellipse, rgba(100,40,200,0.07) 0%, transparent 70%);
     }
 
     /* ── Layout ── */
@@ -75,138 +72,146 @@
 
     /* ── Header ── */
     header {
-      padding: 3.5rem 0 0;
+      padding: 3rem 0 1.4rem;
       display: flex;
-      align-items: baseline;
+      align-items: center;
       justify-content: space-between;
       border-bottom: 1px solid var(--border);
-      padding-bottom: 1.5rem;
-      animation: fadeUp 0.8s ease both;
+      animation: fadeUp 0.7s ease both;
     }
 
     .wordmark {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 300;
-      font-size: clamp(1.6rem, 4vw, 2.2rem);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: clamp(1.3rem, 3.5vw, 1.7rem);
+      letter-spacing: -0.01em;
       color: var(--text);
       text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
     }
 
-    .wordmark span {
-      color: var(--accent);
+    .wordmark-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 10px var(--accent), 0 0 24px rgba(162,89,255,0.5);
+      flex-shrink: 0;
     }
 
     .location {
       font-size: 0.72rem;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--muted);
+      font-weight: 400;
     }
 
     /* ── Hero ── */
     .hero {
-      padding: 7rem 0 5rem;
-      animation: fadeUp 0.8s 0.15s ease both;
+      padding: 6rem 0 4.5rem;
+      animation: fadeUp 0.7s 0.12s ease both;
     }
 
     .hero-eyebrow {
-      font-size: 0.7rem;
-      letter-spacing: 0.22em;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 1.8rem;
+      margin-bottom: 1.6rem;
+      font-weight: 600;
     }
 
     .hero h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 300;
-      font-size: clamp(2.8rem, 7vw, 5rem);
-      line-height: 1.08;
-      letter-spacing: -0.01em;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: clamp(2.4rem, 6.5vw, 4.2rem);
+      line-height: 1.12;
+      letter-spacing: -0.02em;
       color: var(--text);
-      max-width: 14ch;
+      max-width: 16ch;
     }
 
     .hero h1 em {
-      font-style: italic;
-      color: var(--accent);
+      font-style: normal;
+      color: var(--accent-bright);
+      text-shadow: 0 0 32px rgba(162,89,255,0.45);
     }
 
     .hero-body {
-      margin-top: 2.4rem;
-      font-size: 1.05rem;
-      line-height: 1.75;
+      margin-top: 2rem;
+      font-size: 1rem;
+      line-height: 1.8;
       color: var(--muted);
-      max-width: 52ch;
+      max-width: 54ch;
     }
 
     /* ── Divider ── */
     .divider {
-      width: 3rem;
-      height: 1px;
-      background: var(--accent);
-      opacity: 0.4;
-      margin: 4rem 0;
-      animation: fadeUp 0.8s 0.3s ease both;
+      width: 2.5rem;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      border-radius: 2px;
+      margin: 3.5rem 0;
+      animation: fadeUp 0.7s 0.25s ease both;
     }
 
-    /* ── Games section ── */
+    /* ── Sections ── */
     .section {
-      animation: fadeUp 0.8s 0.35s ease both;
-      margin-bottom: 5rem;
+      animation: fadeUp 0.7s 0.3s ease both;
+      margin-bottom: 4.5rem;
     }
 
     .section-label {
       font-size: 0.7rem;
-      letter-spacing: 0.22em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: 2rem;
+      margin-bottom: 1.6rem;
+      font-weight: 600;
     }
 
+    /* ── Game card ── */
     .game-card {
       border: 1px solid var(--border);
-      border-radius: 2px;
-      padding: 2rem 2.2rem;
+      border-radius: 16px;
+      padding: 1.8rem 2rem;
       background: var(--surface);
       display: flex;
       align-items: flex-start;
-      gap: 2rem;
-      transition: border-color 0.3s ease, background 0.3s ease;
+      gap: 1.6rem;
+      transition: border-color 0.3s, background 0.3s, box-shadow 0.3s;
     }
 
     .game-card:hover {
-      border-color: rgba(201,169,110,0.25);
-      background: #141416;
+      border-color: var(--border-acc);
+      background: var(--surface-2);
+      box-shadow: 0 0 32px rgba(162,89,255,0.07);
     }
 
     .game-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 12px;
+      width: 54px;
+      height: 54px;
+      border-radius: 14px;
       background: var(--accent-dim);
-      border: 1px solid rgba(201,169,110,0.2);
+      border: 1px solid var(--border-acc);
       flex-shrink: 0;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    .game-icon svg {
-      width: 24px;
-      height: 24px;
-      opacity: 0.7;
-    }
+    .game-icon svg { width: 26px; height: 26px; }
 
     .game-info h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 400;
-      font-size: 1.3rem;
-      letter-spacing: 0.04em;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: -0.01em;
       color: var(--text);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.45rem;
     }
 
     .game-info p {
@@ -218,88 +223,107 @@
     .game-status {
       display: inline-block;
       font-size: 0.65rem;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--accent);
-      border: 1px solid rgba(201,169,110,0.3);
-      padding: 0.2rem 0.6rem;
-      border-radius: 2px;
+      color: var(--accent-bright);
+      background: var(--accent-dim);
+      border: 1px solid var(--border-acc);
+      padding: 0.22rem 0.65rem;
+      border-radius: 999px;
       margin-top: 0.8rem;
+      font-weight: 600;
     }
 
     /* ── Contact ── */
     .contact-section {
-      animation: fadeUp 0.8s 0.45s ease both;
-      margin-bottom: 6rem;
+      animation: fadeUp 0.7s 0.4s ease both;
+      margin-bottom: 5.5rem;
     }
 
-    .contact-section p {
+    .contact-section > p {
       font-size: 0.9rem;
       color: var(--muted);
-      line-height: 1.7;
-      margin-bottom: 1.2rem;
+      line-height: 1.75;
+      margin-bottom: 1.1rem;
       max-width: 50ch;
     }
 
     .contact-link {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      color: var(--accent);
+      gap: 0.45rem;
+      color: var(--accent-bright);
       text-decoration: none;
-      font-size: 0.85rem;
-      letter-spacing: 0.06em;
-      border-bottom: 1px solid rgba(201,169,110,0.3);
-      padding-bottom: 0.15rem;
-      transition: border-color 0.2s, color 0.2s;
+      font-size: 0.9rem;
+      font-weight: 400;
+      font-family: 'Nunito', sans-serif;
+      transition: color 0.2s, text-shadow 0.2s;
     }
 
     .contact-link:hover {
-      color: var(--text);
-      border-color: var(--text);
+      color: #fff;
+      text-shadow: 0 0 16px rgba(162,89,255,0.6);
+    }
+
+    .contact-link::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent);
+      flex-shrink: 0;
     }
 
     /* ── Footer ── */
     footer {
       border-top: 1px solid var(--border);
-      padding: 1.8rem 0;
+      padding: 1.6rem 0;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      animation: fadeUp 0.8s 0.5s ease both;
+      animation: fadeUp 0.7s 0.48s ease both;
     }
 
     footer p {
       font-size: 0.72rem;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.06em;
       color: var(--muted);
     }
 
     /* ── Animations ── */
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(18px); }
+      from { opacity: 0; transform: translateY(16px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
     /* ── Responsive ── */
     @media (max-width: 520px) {
-      header { flex-direction: column; gap: 0.6rem; }
+      header { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
       .game-card { flex-direction: column; gap: 1rem; }
-      footer { flex-direction: column; gap: 0.4rem; text-align: center; }
+      footer { flex-direction: column; gap: 0.4rem; }
     }
   </style>
 </head>
 <body>
+
+  <div class="glow-1"></div>
+  <div class="glow-2"></div>
+
   <div class="page-wrap">
 
     <header>
-      <a class="wordmark" href="/">Nightshrine</a>
+      <a class="wordmark" href="/">
+        <span class="wordmark-dot"></span>
+        Nightshrine
+      </a>
       <span class="location">Queensland, Australia</span>
     </header>
 
     <section class="hero">
       <p class="hero-eyebrow">Independent Game Studio</p>
-      <!-- EDIT: Your headline. The <em> tag renders in gold italic. -->
+      <!-- EDIT: Your headline. Wrap key words in <em> for the bright purple glow effect. -->
       <h1>Games built.</h1>
       <!-- EDIT: 2–3 sentence studio description -->
       <p class="hero-body">
@@ -316,19 +340,19 @@
       <!-- EDIT: Fill in your game details. Duplicate the .game-card block for multiple titles. -->
       <div class="game-card">
         <div class="game-icon">
-          <!-- Simple geometric icon — replace with your own SVG or img tag if you have one -->
+          <!-- Replace with your own SVG or <img> tag if you have one -->
           <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="3" y="3" width="7" height="7" rx="1" fill="#c9a96e"/>
-            <rect x="14" y="3" width="7" height="7" rx="1" fill="#c9a96e" opacity="0.5"/>
-            <rect x="3" y="14" width="7" height="7" rx="1" fill="#c9a96e" opacity="0.5"/>
-            <rect x="14" y="14" width="7" height="7" rx="1" fill="#c9a96e" opacity="0.3"/>
+            <rect x="3" y="3" width="7" height="7" rx="2" fill="#a259ff"/>
+            <rect x="14" y="3" width="7" height="7" rx="2" fill="#a259ff" opacity="0.55"/>
+            <rect x="3" y="14" width="7" height="7" rx="2" fill="#a259ff" opacity="0.55"/>
+            <rect x="14" y="14" width="7" height="7" rx="2" fill="#a259ff" opacity="0.25"/>
           </svg>
         </div>
         <div class="game-info">
           <!-- EDIT: Your game title -->
           <h3>Color Block Blast!</h3>
           <!-- EDIT: One sentence description of the game -->
-          <p>Sort and match blocks in this satisfying mobile game.</p>
+          <p>Sort and match blocks in this satisfying mobile puzzle game.</p>
           <span class="game-status">In Development</span>
         </div>
       </div>
@@ -343,7 +367,6 @@
     </section>
 
     <footer>
-      <!-- EDIT: Update year and legal entity name if needed -->
       <p>© 2026 J. Frew Pty Ltd trading as Nightshrine</p>
       <p>Queensland, Australia</p>
     </footer>
