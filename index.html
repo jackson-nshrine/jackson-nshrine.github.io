@@ -8,10 +8,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=Nunito+Sans:wght@300;400&display=swap" rel="stylesheet" />
-
+ 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+ 
     :root {
       --bg:            #08080f;
       --surface:       #0e0e1a;
@@ -24,9 +24,9 @@
       --accent-bright: #bf7fff;
       --accent-dim:    rgba(162,89,255,0.12);
     }
-
+ 
     html { scroll-behavior: smooth; }
-
+ 
     body {
       background: var(--bg);
       color: var(--text);
@@ -37,8 +37,7 @@
       flex-direction: column;
       overflow-x: hidden;
     }
-
-    /* ── Ambient glow blobs ── */
+ 
     .glow-1, .glow-2 {
       position: fixed;
       border-radius: 50%;
@@ -56,8 +55,7 @@
       bottom: -5vw; right: -10vw;
       background: radial-gradient(ellipse, rgba(100,40,200,0.07) 0%, transparent 70%);
     }
-
-    /* ── Layout ── */
+ 
     .page-wrap {
       position: relative;
       z-index: 1;
@@ -69,8 +67,7 @@
       display: flex;
       flex-direction: column;
     }
-
-    /* ── Header ── */
+ 
     header {
       padding: 3rem 0 1.4rem;
       display: flex;
@@ -79,7 +76,7 @@
       border-bottom: 1px solid var(--border);
       animation: fadeUp 0.7s ease both;
     }
-
+ 
     .wordmark {
       font-family: 'Nunito', sans-serif;
       font-weight: 700;
@@ -91,7 +88,7 @@
       align-items: center;
       gap: 0.55rem;
     }
-
+ 
     .wordmark-dot {
       width: 9px;
       height: 9px;
@@ -100,7 +97,7 @@
       box-shadow: 0 0 10px var(--accent), 0 0 24px rgba(162,89,255,0.5);
       flex-shrink: 0;
     }
-
+ 
     .location {
       font-size: 0.72rem;
       letter-spacing: 0.14em;
@@ -108,13 +105,12 @@
       color: var(--muted);
       font-weight: 400;
     }
-
-    /* ── Hero ── */
+ 
     .hero {
       padding: 6rem 0 4.5rem;
       animation: fadeUp 0.7s 0.12s ease both;
     }
-
+ 
     .hero-eyebrow {
       font-size: 0.72rem;
       letter-spacing: 0.2em;
@@ -123,7 +119,7 @@
       margin-bottom: 1.6rem;
       font-weight: 600;
     }
-
+ 
     .hero h1 {
       font-family: 'Nunito', sans-serif;
       font-weight: 700;
@@ -133,13 +129,13 @@
       color: var(--text);
       max-width: 16ch;
     }
-
+ 
     .hero h1 em {
       font-style: normal;
       color: var(--accent-bright);
       text-shadow: 0 0 32px rgba(162,89,255,0.45);
     }
-
+ 
     .hero-body {
       margin-top: 2rem;
       font-size: 1rem;
@@ -147,8 +143,7 @@
       color: var(--muted);
       max-width: 54ch;
     }
-
-    /* ── Divider ── */
+ 
     .divider {
       width: 2.5rem;
       height: 2px;
@@ -157,13 +152,12 @@
       margin: 3.5rem 0;
       animation: fadeUp 0.7s 0.25s ease both;
     }
-
-    /* ── Sections ── */
+ 
     .section {
       animation: fadeUp 0.7s 0.3s ease both;
       margin-bottom: 4.5rem;
     }
-
+ 
     .section-label {
       font-size: 0.7rem;
       letter-spacing: 0.2em;
@@ -172,8 +166,7 @@
       margin-bottom: 1.6rem;
       font-weight: 600;
     }
-
-    /* ── Game card ── */
+ 
     .game-card {
       border: 1px solid var(--border);
       border-radius: 16px;
@@ -184,13 +177,13 @@
       gap: 1.6rem;
       transition: border-color 0.3s, background 0.3s, box-shadow 0.3s;
     }
-
+ 
     .game-card:hover {
       border-color: var(--border-acc);
       background: var(--surface-2);
       box-shadow: 0 0 32px rgba(162,89,255,0.07);
     }
-
+ 
     .game-icon {
       width: 54px;
       height: 54px;
@@ -202,9 +195,9 @@
       align-items: center;
       justify-content: center;
     }
-
+ 
     .game-icon svg { width: 26px; height: 26px; }
-
+ 
     .game-info h3 {
       font-family: 'Nunito', sans-serif;
       font-weight: 700;
@@ -213,13 +206,13 @@
       color: var(--text);
       margin-bottom: 0.45rem;
     }
-
+ 
     .game-info p {
       font-size: 0.88rem;
       line-height: 1.65;
       color: var(--muted);
     }
-
+ 
     .game-status {
       display: inline-block;
       font-size: 0.65rem;
@@ -233,13 +226,12 @@
       margin-top: 0.8rem;
       font-weight: 600;
     }
-
-    /* ── Contact ── */
+ 
     .contact-section {
       animation: fadeUp 0.7s 0.4s ease both;
       margin-bottom: 5.5rem;
     }
-
+ 
     .contact-section > p {
       font-size: 0.9rem;
       color: var(--muted);
@@ -247,7 +239,7 @@
       margin-bottom: 1.1rem;
       max-width: 50ch;
     }
-
+ 
     .contact-link {
       display: inline-flex;
       align-items: center;
@@ -259,12 +251,12 @@
       font-family: 'Nunito', sans-serif;
       transition: color 0.2s, text-shadow 0.2s;
     }
-
+ 
     .contact-link:hover {
       color: #fff;
       text-shadow: 0 0 16px rgba(162,89,255,0.6);
     }
-
+ 
     .contact-link::before {
       content: '';
       display: inline-block;
@@ -275,8 +267,7 @@
       box-shadow: 0 0 8px var(--accent);
       flex-shrink: 0;
     }
-
-    /* ── Footer ── */
+ 
     footer {
       border-top: 1px solid var(--border);
       padding: 1.6rem 0;
@@ -285,34 +276,49 @@
       align-items: center;
       animation: fadeUp 0.7s 0.48s ease both;
     }
-
+ 
     footer p {
       font-size: 0.72rem;
       letter-spacing: 0.06em;
       color: var(--muted);
     }
-
-    /* ── Animations ── */
+ 
+    .footer-right {
+      display: flex;
+      gap: 1.2rem;
+      align-items: center;
+    }
+ 
+    .footer-link {
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+ 
+    .footer-link:hover { color: var(--accent-bright); }
+ 
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(16px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-
-    /* ── Responsive ── */
+ 
     @media (max-width: 520px) {
       header { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
       .game-card { flex-direction: column; gap: 1rem; }
       footer { flex-direction: column; gap: 0.4rem; }
+      .footer-right { flex-direction: column; gap: 0.3rem; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
-
+ 
   <div class="glow-1"></div>
   <div class="glow-2"></div>
-
+ 
   <div class="page-wrap">
-
+ 
     <header>
       <a class="wordmark" href="/">
         <span class="wordmark-dot"></span>
@@ -320,27 +326,23 @@
       </a>
       <span class="location">Queensland, Australia</span>
     </header>
-
+ 
     <section class="hero">
       <p class="hero-eyebrow">Independent Game Studio</p>
-      <!-- EDIT: Your headline. Wrap key words in <em> for the bright purple glow effect. -->
       <h1>We build games.</h1>
-      <!-- EDIT: 2–3 sentence studio description -->
       <p class="hero-body">
         Nightshrine is an independent mobile game studio based in Queensland, Australia.
         We design and develop free-to-play games focused on tactile mechanics and satisfying player loops.
       </p>
     </section>
-
+ 
     <div class="divider"></div>
-
+ 
     <section class="section">
       <p class="section-label">Games</p>
-
-      <!-- EDIT: Fill in your game details. Duplicate the .game-card block for multiple titles. -->
+ 
       <div class="game-card">
         <div class="game-icon">
-          <!-- Replace with your own SVG or <img> tag if you have one -->
           <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="3" y="3" width="7" height="7" rx="2" fill="#a259ff"/>
             <rect x="14" y="3" width="7" height="7" rx="2" fill="#a259ff" opacity="0.55"/>
@@ -349,28 +351,27 @@
           </svg>
         </div>
         <div class="game-info">
-          <!-- EDIT: Your game title -->
           <h3>Color Block Blitz!</h3>
-          <!-- EDIT: One sentence description of the game -->
           <p>Sort and match blocks in this satisfying mobile puzzle game.</p>
           <span class="game-status">In Development</span>
         </div>
       </div>
     </section>
-
+ 
     <section class="contact-section">
       <p class="section-label">Contact</p>
-      <!-- EDIT: Optionally update this copy -->
       <p>For business enquiries.</p>
-      <!-- EDIT: Replace with your actual email address -->
       <a class="contact-link" href="mailto:contact@nightshrine.com">contact@nightshrine.com</a>
     </section>
-
+ 
     <footer>
       <p>© 2026 J. Frew Pty Ltd trading as Nightshrine</p>
-      <p>Queensland, Australia</p>
+      <div class="footer-right">
+        <span style="font-size:0.72rem;letter-spacing:0.06em;color:var(--muted);">Queensland, Australia</span>
+        <a class="footer-link" href="/privacypolicy">Privacy Policy</a>
+      </div>
     </footer>
-
+ 
   </div>
 </body>
 </html>
