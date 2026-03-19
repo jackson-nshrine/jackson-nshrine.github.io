@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Nightshrine</title>
+  <meta name="description" content="Privacy Policy for Nightshrine (J. Frew Pty Ltd)" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=Nunito+Sans:wght@300;400&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:            #08080f;
+      --surface:       #0e0e1a;
+      --border:        rgba(255,255,255,0.06);
+      --border-acc:    rgba(162,89,255,0.25);
+      --text:          #eeeaf8;
+      --muted:         rgba(238,234,248,0.45);
+      --accent:        #a259ff;
+      --accent-bright: #bf7fff;
+      --accent-dim:    rgba(162,89,255,0.12);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Nunito Sans', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    .glow-1 {
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+      filter: blur(90px);
+      width: 55vw; height: 55vw;
+      top: -18vw; left: -12vw;
+      background: radial-gradient(ellipse, rgba(162,89,255,0.06) 0%, transparent 70%);
+    }
+
+    .page-wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      width: 100%;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Header ── */
+    header {
+      padding: 3rem 0 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .wordmark {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: clamp(1.3rem, 3.5vw, 1.7rem);
+      letter-spacing: -0.01em;
+      color: var(--text);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+
+    .wordmark-dot {
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 10px var(--accent), 0 0 24px rgba(162,89,255,0.5);
+      flex-shrink: 0;
+    }
+
+    .location {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    /* ── Content ── */
+    .content {
+      padding: 4rem 0 6rem;
+      animation: fadeUp 0.7s ease both;
+    }
+
+    .page-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.2rem;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 0.6rem;
+    }
+
+    .last-updated {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 3rem;
+      letter-spacing: 0.04em;
+    }
+
+    .divider {
+      width: 2.5rem;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      border-radius: 2px;
+      margin: 2.5rem 0;
+    }
+
+    h2 {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin-bottom: 0.8rem;
+      margin-top: 2.4rem;
+    }
+
+    h2:first-of-type { margin-top: 0; }
+
+    p {
+      font-size: 0.92rem;
+      line-height: 1.8;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      margin: 0.5rem 0 1rem 1.2rem;
+      padding: 0;
+    }
+
+    ul li {
+      font-size: 0.92rem;
+      line-height: 1.8;
+      color: var(--muted);
+      margin-bottom: 0.3rem;
+      padding-left: 0.3rem;
+    }
+
+    .contact-block {
+      background: var(--surface);
+      border: 1px solid var(--border-acc);
+      border-radius: 12px;
+      padding: 1.4rem 1.8rem;
+      margin-top: 1rem;
+    }
+
+    .contact-block p {
+      margin-bottom: 0.3rem;
+      font-size: 0.88rem;
+    }
+
+    a {
+      color: var(--accent-bright);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    a:hover { color: #fff; }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+      text-decoration: none;
+      margin-bottom: 2.5rem;
+      transition: color 0.2s;
+      font-weight: 400;
+    }
+
+    .back-link:hover { color: var(--accent-bright); }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.6rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer p {
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 520px) {
+      header { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+      footer { flex-direction: column; gap: 0.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="glow-1"></div>
+
+  <div class="page-wrap">
+
+    <header>
+      <a class="wordmark" href="/">
+        <span class="wordmark-dot"></span>
+        Nightshrine
+      </a>
+      <span class="location">Queensland, Australia</span>
+    </header>
+
+    <div class="content">
+
+      <a class="back-link" href="/">← Back to home</a>
+
+      <p class="page-eyebrow">Legal</p>
+      <h1>Privacy Policy</h1>
+      <p class="last-updated">Last updated: March 2026</p>
+
+      <p>J. Frew Pty Ltd (ABN 73 695 570 686), trading as <strong>Nightshrine</strong> (<strong>we</strong>, <strong>us</strong> or <strong>our</strong>), understands that protecting your personal information is important. This Privacy Policy sets out our commitment to protecting the privacy of personal information provided to us, or collected by us, when you interact with us or use our games and services.</p>
+
+      <p>This Privacy Policy takes into account the requirements of the Privacy Act 1988 (Cth). Individuals located in the European Union or European Economic Area (EU) may also have rights under the General Data Protection Regulation 2016/679, and individuals located in the United Kingdom (UK) may have rights under the UK GDPR and the Data Protection Act 2018. Additional details for EU and UK individuals are set out in Appendix 1 below.</p>
+
+      <div class="divider"></div>
+
+      <h2>The information we collect</h2>
+      <p>Personal information is information or an opinion, whether true or not and whether recorded in a material form or not, about an individual who is identified or reasonably identifiable.</p>
+      <p>The types of personal information we may collect include:</p>
+      <ul>
+        <li><strong>Identity Data</strong> — your name and age.</li>
+        <li><strong>Contact Data</strong> — your email address.</li>
+        <li><strong>Technical and Usage Data</strong> — when you access our games or website, details such as your IP address, device and network information, browser or app session data, geo-location data, page views, acquisition sources, and search or browsing behaviour.</li>
+        <li><strong>Profile Data</strong> — your username and any profile information associated with our games, purchases or transactions, content you post or share, and support requests you make.</li>
+        <li><strong>Interaction Data</strong> — information you provide when participating in surveys, promotions, or other interactive features.</li>
+        <li><strong>Marketing and Communications Data</strong> — your preferences for receiving marketing from us and your communication preferences.</li>
+      </ul>
+
+      <p><strong>Sensitive information</strong> is a subset of personal information given a higher level of protection, including information about racial or ethnic origin, health, religion, sexual orientation, and similar matters. We do not actively seek to collect sensitive information. If we ever need to collect it, we will obtain your consent first unless otherwise required by law.</p>
+
+      <h2>How we collect personal information</h2>
+      <p>We collect personal information in a variety of ways, including:</p>
+      <ul>
+        <li>when you provide it directly to us via email or online forms;</li>
+        <li>when you use our games or website (including through analytics and cookie providers);</li>
+        <li>from third-party platforms and services you connect to our games; and</li>
+        <li>from publicly available sources.</li>
+      </ul>
+
+      <h2>Why we collect, hold, use and disclose personal information</h2>
+      <p>We collect and use your personal information for the following purposes:</p>
+      <ul>
+        <li>to enable you to access and use our games and services;</li>
+        <li>to contact and communicate with you, including in response to support requests or enquiries;</li>
+        <li>for internal record keeping and administrative purposes;</li>
+        <li>for analytics, market research and business development, including to operate and improve our games and services;</li>
+        <li>for advertising and marketing, including to send you information we consider may be of interest to you;</li>
+        <li>to run promotions, competitions or offer additional benefits; and</li>
+        <li>to comply with our legal obligations or as otherwise required or authorised by law.</li>
+      </ul>
+
+      <h2>Disclosure of personal information to third parties</h2>
+      <p>We may disclose personal information to:</p>
+      <ul>
+        <li>IT service providers, data storage, web-hosting and server providers;</li>
+        <li>analytics and advertising providers;</li>
+        <li>professional advisors including lawyers, accountants and insurers;</li>
+        <li>payment systems operators or processors;</li>
+        <li>our existing or potential business partners or agents;</li>
+        <li>in the event of a merger, acquisition or sale of assets, prospective purchasers and their advisors;</li>
+        <li>courts, tribunals, regulatory authorities and law enforcement officers as required or authorised by law; and</li>
+        <li>any other third parties as required or permitted by law.</li>
+      </ul>
+
+      <p><strong>Google Analytics:</strong> We may use Google Analytics, including Advertising Features. We and third-party vendors may use first-party and third-party cookies and identifiers to collect Technical and Usage Data. You can opt out of Google Analytics Advertising Features via the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out Browser Add-on</a>. To learn more about how Google uses data, visit <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">Google's Privacy & Terms</a>.</p>
+
+      <h2>Overseas disclosure</h2>
+      <p>We may store personal information overseas, including in the United States of America. Where we disclose your personal information to third parties, those parties may also store, transfer or access personal information outside of Australia. We will only disclose your personal information overseas in accordance with the Australian Privacy Principles.</p>
+
+      <h2>Your rights and controlling your personal information</h2>
+      <p><strong>Your choice:</strong> You do not have to provide personal information to us. However, if you do not, it may affect our ability to provide our games and services to you.</p>
+
+      <p><strong>Unsubscribe / opt-out:</strong> To unsubscribe from our email database or opt out of marketing communications, please contact us using the details below or use the opt-out facility provided in the communication.</p>
+
+      <p><strong>Access:</strong> You may request access to the personal information we hold about you by contacting us. An administrative fee may be payable. In some situations we may be legally permitted to withhold access, in which case we will explain why and advise of any available complaint mechanism.</p>
+
+      <p><strong>Correction:</strong> If you believe information we hold about you is inaccurate, out of date, incomplete or misleading, please contact us. We will take reasonable steps to correct it promptly. If we cannot, we will explain why.</p>
+
+      <p><strong>Complaints:</strong> If you wish to make a complaint, please contact us using the details below with full details of your complaint. We will investigate and respond in writing. If you are not satisfied with our response, you may contact the <a href="https://www.oaic.gov.au" target="_blank" rel="noopener">Office of the Australian Information Commissioner</a>.</p>
+
+      <h2>Storage and security</h2>
+      <p>We are committed to ensuring that the personal information we collect is secure. We have implemented appropriate physical, electronic and managerial procedures to safeguard and protect personal information from misuse, interference, loss, and unauthorised access, modification or disclosure. While we take security seriously, we cannot guarantee the security of information transmitted over the internet. Transmission is at your own risk.</p>
+
+      <h2>Cookies</h2>
+      <p>We may use cookies on our website from time to time. Cookies are text files placed in your browser to store preferences. They do not by themselves identify you personally, but they do allow us and third parties to recognise you when you return to our site. If you choose to provide personal information on our website, that information may be linked to cookie data.</p>
+      <p>You can block cookies via your browser settings. Blocking all cookies may affect your ability to access parts of our website.</p>
+
+      <h2>Links to other websites</h2>
+      <p>Our website and games may contain links to third-party websites. We are not responsible for the privacy practices or content of those websites. This Privacy Policy does not apply to them.</p>
+
+      <h2>Amendments</h2>
+      <p>We may vary this Privacy Policy at any time by publishing the updated version on our website. We recommend checking our website periodically to stay informed of any changes.</p>
+
+      <h2>Contact us</h2>
+      <div class="contact-block">
+        <p><strong>Nightshrine</strong> (J. Frew Pty Ltd — ABN 73 695 570 686)</p>
+        <p>Queensland, Australia</p>
+        <p>Email: <a href="mailto:contact@nightshrine.com">contact@nightshrine.com</a></p>
+      </div>
+
+      <div class="divider"></div>
+
+      <h2>Appendix 1: Additional rights for individuals in the EU and UK</h2>
+
+      <p>Under the GDPR, individuals located in the EU and UK have additional rights in relation to their personal information (referred to as "personal data" under the GDPR). This Appendix sets out those additional rights and explains how we process your personal data.</p>
+
+      <p><strong>What personal information is relevant?</strong> This Appendix applies to all personal information described in the Privacy Policy above, including any sensitive information (referred to as "special categories of data" under the GDPR).</p>
+
+      <p><strong>Legal bases for processing:</strong> We collect and process your personal information only where we have a lawful basis to do so. Depending on the specific purpose, we may rely on one or more of the following legal bases:</p>
+      <ul>
+        <li><strong>Performance of a contract</strong> — where processing is necessary to provide our games and services to you.</li>
+        <li><strong>Legitimate interests</strong> — where processing is necessary for our legitimate business interests, including improving our games, responding to enquiries, and marketing our services, provided those interests are not overridden by your rights.</li>
+        <li><strong>Legal obligation</strong> — where processing is necessary to comply with a legal obligation.</li>
+        <li><strong>Consent</strong> — where you have given us explicit consent to process your data for a specific purpose. You may withdraw consent at any time, though this does not affect processing already carried out.</li>
+      </ul>
+
+      <p><strong>Data transfers:</strong> Where we transfer your personal information outside of the EU or UK, we will do so using appropriate safeguards in accordance with applicable data protection law, including standard contractual clauses where required.</p>
+
+      <p><strong>Data retention:</strong> We retain your personal information only for as long as necessary to fulfil the purposes for which it was collected, including to satisfy any legal, regulatory, accounting or reporting requirements. To determine the appropriate retention period, we consider the amount and sensitivity of the data, the potential risk of harm from unauthorised use or disclosure, the purposes for which we process it, and applicable legal requirements.</p>
+
+      <p><strong>Your additional rights:</strong> If you are located in the EU or UK, you may have the right to:</p>
+      <ul>
+        <li>request access to the personal data we hold about you (a "data subject access request");</li>
+        <li>request correction or deletion of your personal data;</li>
+        <li>restrict or object to our processing of your personal data;</li>
+        <li>object to decisions made about you based solely on automated processing;</li>
+        <li>request the transfer of your personal data to you or another organisation (data portability); and</li>
+        <li>lodge a complaint with the relevant Data Protection Authority in your country.</li>
+      </ul>
+
+      <p>We would appreciate the opportunity to address your concerns before you contact a Data Protection Authority. Please reach out to us in the first instance using the contact details below.</p>
+
+      <h2>Contact — EU and UK enquiries</h2>
+      <div class="contact-block">
+        <p><strong>Data Privacy contact:</strong> <a href="mailto:contact@nightshrine.com">contact@nightshrine.com</a></p>
+        <p><strong>EU Representative:</strong> <a href="mailto:contact@nightshrine.com">contact@nightshrine.com</a></p>
+        <p><strong>UK Representative:</strong> <a href="mailto:contact@nightshrine.com">contact@nightshrine.com</a></p>
+      </div>
+
+    </div>
+
+    <footer>
+      <p>© 2026 J. Frew Pty Ltd trading as Nightshrine</p>
+      <p>Queensland, Australia</p>
+    </footer>
+
+  </div>
+</body>
+</html>
